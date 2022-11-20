@@ -7,6 +7,16 @@ function Dashboard() {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
+  let DeletProd = (PID) =>
+  {
+    fetch(`http://localhost:9000/Products/${PID}`,{
+      method:'DELETE'
+    })
+    .then((res)=> {res.json()})
+    .then((data)=> console.log(data))
+    // console.log(PID);
+  }
   return (
     <>
       <section>
@@ -28,6 +38,8 @@ function Dashboard() {
                     <td>{Prod.price}</td>
                     <td>
                       <Link to={`/CardProducts/${Prod.id}`} className="btn btn-primary"> view </Link>
+                      <Link  className="btn btn-danger" onClick={()=>{ DeletProd(Prod.id) }}> delete </Link>
+
                     </td>
                   </tr>
                 </>
