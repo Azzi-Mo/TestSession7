@@ -34,9 +34,11 @@ function Dashboard() {
   return (
     <>
       <section>
-      <div>
-        <Link to={`/AddProd`} className="btn btn-success">Add Product</Link> 
-      </div>
+        <div>
+          <Link to={`/AddProd`} className="btn btn-success">
+            Add Product
+          </Link>
+        </div>
         <table className="table table-striped">
           <thead>
             <tr>
@@ -55,7 +57,7 @@ function Dashboard() {
                     <td>{Prod.price}</td>
                     <td>
                       <Link
-                        to={`/CardProducts/${Prod.id}`}
+                        to={`/CardProducts/${Prod.id}`} 
                         className="btn btn-primary"
                       >
                         {" "}
@@ -69,6 +71,10 @@ function Dashboard() {
                       >
                         {" "}
                         delete{" "}
+                      </Link>
+                      <Link className="btn btn-warning" to={`/EditProd/${Prod.id}`}>
+                        {" "}
+                        Edite{" "}
                       </Link>
                     </td>
                   </tr>
